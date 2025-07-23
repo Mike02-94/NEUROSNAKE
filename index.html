@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEUROSNAKE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Title Screen -->
+  <div id="titleScreen">
+    <div id="titleContent">
+      <h1>NEUROSNAKE</h1>
+      <div id="loadingBarContainer">
+        <div id="loadingBar"></div>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="mainGame" style="display: none;">
+    <aside class="sidebar">
+      <h2>Neurosnake</h2>
+      <div class="scoreboard">
+        <p>Score: <span id="score">0</span></p>
+      </div>
+      <div class="level-info">
+        <p>Level: <span id="level">1</span></p>
+      </div>
+      <div class="wrap-toggle">
+        <label>
+          <input type="checkbox" id="wrapToggle" checked>
+          Edge Wrapping ON
+        </label>
+      </div>
+      <div class="controls">
+        <h3>Controls:</h3>
+        <ul>
+          <li>- Arrow Keys to Move</li>
+          <li>- P to Pause/Resume</li>
+        </ul>
+        <div class="Instruction">
+          <h3>Game Mechanics:</h3>
+          <ul>
+            <li>🎯 Every 10 points = one step closer to snake stardom!</li>
+            <li>🌀 Cyan circles are your teleportation ticket from day one!</li>
+            <li>🔴 Red circles crash the party at level 3 (multiply on odd levels)!</li>
+            <li>⚡ Green power-ups turn you into a lightning snake!</li>
+            <li>❄️ Pink power-ups put obstacles on ice while you slither by!</li>
+            <li>👻 White power-ups let you phase through obstacles like a phantom!</li>
+            <li>💰 Yellow circles are worth 5x the points - go for gold!</li>
+            <li>🔥 Eat fast, eat furious - chain those bites for multiplier madness!</li>
+          </ul>
+          <div class="buttons">
+            <button id="startBtn">Start</button>
+            <button id="exitBtn">Exit</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <main class="game-area">
+      <canvas id="gameCanvas" width="600" height="600"></canvas>
+      <div id="gameOverScreen" class="hidden">
+        <h2>Game Over</h2>
+        <div id="performanceSummary"></div>
+        <button id="playAgainBtn">Play Again</button>
+      </div>
+      <div id="pauseOverlay" class="hidden">
+        <h2>Paused</h2>
+        <p id="countdownText"></p>
+      </div>
+      <div id="levelUpPopup" class="levelup-popup hidden">Level Up!</div>
+
+      <!-- New additions below game area -->
+      <div class="game-info-panel">
+        <div class="minimap-container">
+          <h3>Mini-Map</h3>
+          <canvas id="miniMap" width="150" height="150"></canvas>
+        </div>
+        <div class="powerup-tracker">
+          <h3>Power-Up Status</h3>
+
+          <div class="powerup-grid">
+            <div class="powerup-item" id="speedPowerup">
+              <div class="powerup-icon">⚡</div>
+              <div class="powerup-info">
+                <div class="powerup-name">Speed</div>
+                <div class="powerup-timer"></div>
+              </div>
+              <div class="bar-container">
+                <div class="bar-fill" id="speedBar"></div>
+              </div>
+            </div>
+            <div class="powerup-item" id="freezePowerup">
+              <div class="powerup-icon">❄️</div>
+              <div class="powerup-info">
+                <div class="powerup-name">Freeze</div>
+                <div class="powerup-timer"></div>
+              </div>
+              <div class="bar-container">
+                <div class="bar-fill" id="freezeBar"></div>
+              </div>
+            </div>
+            <div class="powerup-item" id="ghostPowerup">
+              <div class="powerup-icon">👻</div>
+              <div class="powerup-info">
+                <div class="powerup-name">Ghost</div>
+                <div class="powerup-timer"></div>
+              </div>
+              <div class="bar-container">
+                <div class="bar-fill" id="ghostBar"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
